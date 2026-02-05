@@ -27,16 +27,20 @@
         }
     </script>
     <style>
-        /* Effetto Parallax e stili custom */
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            /* Immagine generata: Collina Abruzzese con B&B, Piscina e 2 Bubble Room */
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://files.oaiusercontent.com/file-K1S2N3R4E5S6A7N8I9O0'); 
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
         }
+        /* Fallback se l'immagine sopra non caricasse subito */
+        @media (max-width: 768px) {
+            .hero-bg { background-attachment: scroll; }
+        }
         .luxury-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
     </style>
@@ -46,8 +50,8 @@
     <nav class="fixed w-full z-50 bg-luxury-dark/95 text-white transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 font-serif text-2xl text-luxury-gold tracking-widest">
-                    TENUTA SANT'EUSANIO
+                <div class="flex-shrink-0">
+                    <img src="logo.png" alt="Tenuta Sant'Eusanio" class="h-12 md:h-16 w-auto">
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4 text-sm uppercase tracking-wide">
@@ -56,19 +60,18 @@
                         <a href="#eventi" class="hover:text-luxury-gold px-3 py-2 transition">Eventi</a>
                         <a href="#prodotti" class="hover:text-luxury-gold px-3 py-2 transition">Shop</a>
                         <a href="#location" class="hover:text-luxury-gold px-3 py-2 transition">Location</a>
-                        <a href="#recensioni" class="hover:text-luxury-gold px-3 py-2 transition">Recensioni</a>
                         <a href="#sala" class="hover:text-luxury-gold px-3 py-2 transition">Sala Eventi</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-white hover:text-luxury-gold focus:outline-none">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-white hover:text-luxury-gold">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="hidden md:hidden bg-luxury-dark" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+        <div class="hidden bg-luxury-dark md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 text-center">
                 <a href="#camere" class="block hover:text-luxury-gold py-2">Camere</a>
                 <a href="#bubbles" class="block hover:text-luxury-gold py-2">Bubble Room</a>
                 <a href="#eventi" class="block hover:text-luxury-gold py-2">Eventi</a>
@@ -80,7 +83,7 @@
 
     <header class="hero-bg h-screen flex items-center justify-center text-center px-4">
         <div class="text-white max-w-4xl">
-            <p class="text-lg md:text-xl uppercase tracking-[0.3em] mb-4 text-luxury-gold">Luxury Retreat & Nature</p>
+            <p class="text-lg md:text-xl uppercase tracking-[0.3em] mb-4 text-luxury-gold font-bold">Luxury Retreat & Nature</p>
             <h1 class="font-serif text-5xl md:text-7xl mb-6 leading-tight">L'Esclusività della Natura<br>nel Cuore d'Abruzzo</h1>
             <p class="text-lg mb-8 font-light italic">Sant'Eusanio del Sangro</p>
             <a href="#camere" class="bg-luxury-gold text-luxury-dark px-8 py-3 uppercase tracking-widest text-sm font-bold hover:bg-white transition duration-300">Prenota Ora</a>
@@ -93,285 +96,64 @@
             <h2 class="font-serif text-4xl text-luxury-dark mt-2">Le Nostre Suite</h2>
             <div class="w-24 h-1 bg-luxury-gold mx-auto mt-4"></div>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="luxury-card bg-white shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800" class="w-full h-64 object-cover">
                 <div class="p-8">
-                    <h3 class="font-serif text-2xl text-luxury-dark">Suite Aurea</h3>
-                    <p class="text-gray-500 mt-2 text-sm">Vista panoramica, vasca idromassaggio privata, letto King Size.</p>
+                    <h3 class="font-serif text-2xl">Suite Aurea</h3>
+                    <p class="text-gray-500 mt-2">Vista panoramica e vasca idromassaggio privata.</p>
                     <div class="mt-6 flex justify-between items-center">
                         <span class="text-luxury-gold font-bold">da €250/notte</span>
-                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Verifica Disponibilità</button>
+                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Dettagli</button>
                     </div>
                 </div>
             </div>
             <div class="luxury-card bg-white shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800" class="w-full h-64 object-cover">
                 <div class="p-8">
-                    <h3 class="font-serif text-2xl text-luxury-dark">Suite Terra</h3>
-                    <p class="text-gray-500 mt-2 text-sm">Design materico, accesso diretto al giardino, doccia emozionale.</p>
+                    <h3 class="font-serif text-2xl">Suite Terra</h3>
+                    <p class="text-gray-500 mt-2">Design materico e accesso diretto al giardino.</p>
                     <div class="mt-6 flex justify-between items-center">
                         <span class="text-luxury-gold font-bold">da €220/notte</span>
-                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Verifica Disponibilità</button>
-                    </div>
-                </div>
-            </div>
-            <div class="luxury-card bg-white shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover">
-                <div class="p-8">
-                    <h3 class="font-serif text-2xl text-luxury-dark">Suite Aqua</h3>
-                    <p class="text-gray-500 mt-2 text-sm">Toni blu e relax, affaccio sulla piscina, domotica integrata.</p>
-                    <div class="mt-6 flex justify-between items-center">
-                        <span class="text-luxury-gold font-bold">da €230/notte</span>
-                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Verifica Disponibilità</button>
-                    </div>
-                </div>
-            </div>
-             <div class="luxury-card bg-white shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1505693416388-b0346ef41439?auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover">
-                <div class="p-8">
-                    <h3 class="font-serif text-2xl text-luxury-dark">Suite Ignis</h3>
-                    <p class="text-gray-500 mt-2 text-sm">Atmosfera calda, caminetto di design, terrazzo privato.</p>
-                    <div class="mt-6 flex justify-between items-center">
-                        <span class="text-luxury-gold font-bold">da €260/notte</span>
-                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Verifica Disponibilità</button>
+                        <button class="border border-luxury-dark px-4 py-2 text-xs uppercase hover:bg-luxury-dark hover:text-white transition">Dettagli</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="bubbles" class="py-20 bg-luxury-dark text-white">
+    <section id="bubbles" class="py-20 bg-luxury-dark text-white text-center">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-luxury-gold uppercase tracking-widest text-sm">Dormire sotto le stelle</span>
-                <h2 class="font-serif text-4xl mt-2">Bubble Experience</h2>
-            </div>
-            
+            <span class="text-luxury-gold uppercase tracking-widest text-sm">Sotto le stelle</span>
+            <h2 class="font-serif text-4xl mt-2 mb-12">Bubble Experience</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="relative group cursor-pointer overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1533630764723-5e3a6c983637?auto=format&fit=crop&w=800&q=80" class="w-full h-96 object-cover opacity-80 group-hover:scale-105 transition duration-500">
-                    <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black to-transparent w-full">
+                <div class="relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1533630764723-5e3a6c983637?auto=format&fit=crop&w=800" class="w-full h-80 object-cover opacity-60 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 flex flex-col justify-center items-center">
                         <h3 class="font-serif text-3xl text-luxury-gold">Bubble Vega</h3>
-                        <p class="mb-4 text-sm">Immersa nel bosco privato.</p>
-                        <button class="bg-luxury-gold text-black px-6 py-2 uppercase text-xs font-bold">Prenota Vega</button>
+                        <p class="text-sm mt-2">Immersa nel bosco</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80" class="w-full h-96 object-cover opacity-80 group-hover:scale-105 transition duration-500">
-                    <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black to-transparent w-full">
+                <div class="relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800" class="w-full h-80 object-cover opacity-60 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 flex flex-col justify-center items-center">
                         <h3 class="font-serif text-3xl text-luxury-gold">Bubble Sirius</h3>
-                        <p class="mb-4 text-sm">Vista panoramica sulla vallata.</p>
-                        <button class="bg-luxury-gold text-black px-6 py-2 uppercase text-xs font-bold">Prenota Sirius</button>
+                        <p class="text-sm mt-2">Vista sulla vallata</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="eventi" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="font-serif text-4xl text-luxury-dark">Esperienze & Wellness</h2>
-            <p class="mt-4 text-gray-600">Riconnettiti con la natura attraverso i nostri eventi esclusivi.</p>
-        </div>
-
-        <div class="overflow-x-auto pb-8">
-            <div class="flex space-x-6 min-w-max">
-                <div class="w-80 bg-white border border-gray-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-luxury-gold text-xs font-bold uppercase mb-2">24 Settembre</div>
-                        <h3 class="font-serif text-xl mb-2">Raccolta delle Olive</h3>
-                        <p class="text-sm text-gray-500">Giornata tra gli ulivi con degustazione di olio novello e pranzo campestre.</p>
-                    </div>
-                    <a href="#" class="mt-4 text-luxury-dark underline text-sm hover:text-luxury-gold">Prenota il tuo posto &rarr;</a>
-                </div>
-                <div class="w-80 bg-white border border-gray-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-luxury-gold text-xs font-bold uppercase mb-2">Ogni Sabato</div>
-                        <h3 class="font-serif text-xl mb-2">Yoga al Tramonto</h3>
-                        <p class="text-sm text-gray-500">Sessione di Vinyasa Yoga sulla terrazza panoramica seguita da aperitivo detox.</p>
-                    </div>
-                    <a href="#" class="mt-4 text-luxury-dark underline text-sm hover:text-luxury-gold">Prenota il tuo posto &rarr;</a>
-                </div>
-                <div class="w-80 bg-white border border-gray-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-luxury-gold text-xs font-bold uppercase mb-2">Luglio</div>
-                        <h3 class="font-serif text-xl mb-2">Festa del Grano</h3>
-                        <p class="text-sm text-gray-500">Rivivi le antiche tradizioni della mietitura con canti popolari e cena tipica.</p>
-                    </div>
-                    <a href="#" class="mt-4 text-luxury-dark underline text-sm hover:text-luxury-gold">Prenota il tuo posto &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="prodotti" class="py-20 bg-luxury-green text-white">
+    <footer class="bg-black text-white py-12 text-center">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-luxury-gold uppercase tracking-widest text-sm">Gusto Autentico</span>
-                    <h2 class="font-serif text-4xl mt-2">La Nostra Bottega</h2>
-                </div>
-                <button class="hidden md:block border border-white px-6 py-2 hover:bg-white hover:text-luxury-green transition">Vedi tutto lo shop</button>
+            <h4 class="font-serif text-2xl text-luxury-gold mb-4">Tenuta Sant'Eusanio</h4>
+            <p class="text-gray-400 text-sm">Abruzzo, Italia | info@tenutasant.it</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="hover:text-luxury-gold"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-luxury-gold"><i class="fab fa-facebook text-2xl"></i></a>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group">
-                    <div class="bg-gray-100 h-64 w-full mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcdccef?auto=format&fit=crop&w=600&q=80" class="h-full w-full object-cover group-hover:scale-110 transition">
-                    </div>
-                    <h3 class="font-serif text-xl">Olio EVO "Aurum"</h3>
-                    <p class="text-gray-300 text-sm">500ml - Monocultivar</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-luxury-gold">€18.00</span>
-                        <button class="text-xs uppercase underline">Aggiungi</button>
-                    </div>
-                </div>
-                <div class="group">
-                    <div class="bg-gray-100 h-64 w-full mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" class="h-full w-full object-cover group-hover:scale-110 transition">
-                    </div>
-                    <h3 class="font-serif text-xl">Montepulciano D'Abruzzo</h3>
-                    <p class="text-gray-300 text-sm">Riserva 2018</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-luxury-gold">€24.00</span>
-                        <button class="text-xs uppercase underline">Aggiungi</button>
-                    </div>
-                </div>
-                 <div class="group">
-                    <div class="bg-gray-100 h-64 w-full mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1588267243983-a006c5598533?auto=format&fit=crop&w=600&q=80" class="h-full w-full object-cover group-hover:scale-110 transition">
-                    </div>
-                    <h3 class="font-serif text-xl">Miele di Sulla</h3>
-                    <p class="text-gray-300 text-sm">Biologico 250g</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-luxury-gold">€9.00</span>
-                        <button class="text-xs uppercase underline">Aggiungi</button>
-                    </div>
-                </div>
-                 <div class="group">
-                    <div class="bg-gray-100 h-64 w-full mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1621852003781-a62624564855?auto=format&fit=crop&w=600&q=80" class="h-full w-full object-cover group-hover:scale-110 transition">
-                    </div>
-                    <h3 class="font-serif text-xl">Box Degustazione</h3>
-                    <p class="text-gray-300 text-sm">Selezione completa</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-luxury-gold">€65.00</span>
-                        <button class="text-xs uppercase underline">Aggiungi</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="location" class="py-20 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-            <span class="text-luxury-gold uppercase tracking-widest text-sm">Il Territorio</span>
-            <h2 class="font-serif text-4xl text-luxury-dark mt-2 mb-6">A 30 Minuti dalla Meraviglia</h2>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-                Situati a Sant'Eusanio del Sangro, siamo il punto di partenza ideale per scoprire l'Abruzzo autentico. 
-                Dalla montagna al mare in meno di mezz'ora.
-            </p>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <i class="fas fa-map-marker-alt text-luxury-gold mt-1 mr-3"></i>
-                    <div>
-                        <strong class="block text-luxury-dark">Costa dei Trabocchi (25 min)</strong>
-                        <span class="text-sm text-gray-500">Cene romantiche sospese sul mare.</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-landmark text-luxury-gold mt-1 mr-3"></i>
-                    <div>
-                        <strong class="block text-luxury-dark">Castello di Roccascalegna (20 min)</strong>
-                        <span class="text-sm text-gray-500">Il suggestivo castello medievale sospeso nel vuoto.</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-church text-luxury-gold mt-1 mr-3"></i>
-                    <div>
-                        <strong class="block text-luxury-dark">Lanciano - Miracolo Eucaristico (15 min)</strong>
-                        <span class="text-sm text-gray-500">Città d'arte e di storia millenaria.</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="h-96 bg-gray-200 rounded-lg overflow-hidden shadow-xl relative">
-            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition duration-500">
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span class="bg-white px-4 py-2 font-bold shadow-lg text-luxury-dark">Mappa Interattiva</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="recensioni" class="py-20 bg-luxury-cream text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <i class="fas fa-quote-right text-4xl text-luxury-gold mb-8 opacity-50"></i>
-            <h2 class="font-serif text-3xl md:text-4xl text-luxury-dark italic mb-8">"Un'oasi di pace dove ogni dettaglio racconta una storia di eccellenza. La Bubble Room è stata un sogno ad occhi aperti."</h2>
-            <div class="flex items-center justify-center space-x-4">
-                <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-full h-full object-cover">
-                </div>
-                <div class="text-left">
-                    <p class="font-bold text-luxury-dark">Giulia Rossi</p>
-                    <div class="text-luxury-gold text-xs">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sala" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="bg-luxury-dark text-white rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-            <div class="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" class="h-full w-full object-cover">
-            </div>
-            <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                <span class="text-luxury-gold uppercase tracking-widest text-sm mb-2">Private Events</span>
-                <h2 class="font-serif text-4xl mb-6">Sala "Orizzonti"</h2>
-                <p class="text-gray-300 mb-8 leading-relaxed">
-                    Uno spazio esclusivo per matrimoni intimi, meeting aziendali o feste private. 
-                    Capienza fino a 50 persone, servizio catering interno con i nostri prodotti bio.
-                </p>
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                    <div class="border border-gray-600 p-4 text-center">
-                        <i class="fas fa-wifi text-luxury-gold mb-2"></i>
-                        <p class="text-xs uppercase">Wi-Fi High Speed</p>
-                    </div>
-                    <div class="border border-gray-600 p-4 text-center">
-                        <i class="fas fa-music text-luxury-gold mb-2"></i>
-                        <p class="text-xs uppercase">Impianto Audio</p>
-                    </div>
-                </div>
-                <button class="bg-luxury-gold text-luxury-dark px-8 py-3 font-bold hover:bg-white transition">Richiedi Preventivo</button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black text-white py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-                <h4 class="font-serif text-xl text-luxury-gold mb-4">Tenuta Sant'Eusanio</h4>
-                <p class="text-gray-400 text-sm">Un'esperienza di lusso autentico<br>tra le colline abruzzesi.</p>
-            </div>
-            <div>
-                <h4 class="font-serif text-xl mb-4">Contatti</h4>
-                <p class="text-gray-400 text-sm mb-2">Via Contrada X, Sant'Eusanio del Sangro (CH)</p>
-                <p class="text-gray-400 text-sm mb-2">+39 0872 000000</p>
-                <p class="text-gray-400 text-sm">info@tenutasant.it</p>
-            </div>
-            <div>
-                <h4 class="font-serif text-xl mb-4">Social</h4>
-                <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-luxury-gold"><i class="fab fa-instagram text-2xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-luxury-gold"><i class="fab fa-facebook text-2xl"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-12 text-gray-600 text-xs">
-            &copy; 2024 Tenuta Sant'Eusanio. All rights reserved.
+            <p class="mt-8 text-gray-600 text-xs">&copy; 2026 Tenuta Sant'Eusanio. All rights reserved.</p>
         </div>
     </footer>
 
